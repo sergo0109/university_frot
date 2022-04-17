@@ -1,0 +1,42 @@
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase mb-0">Students</h5>
+            </div>
+            <div class="table-responsive">
+              <table class="table no-wrap user-table mb-0">
+                <thead>
+                <tr>
+                  <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                  <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                  <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+                  <th scope="col" class="border-0 text-uppercase font-medium">Added</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let student of students; let index = index" [routerLink]="['/profile', student.id]">
+                  <td class="pl-4"> {{ index + 1 }}</td>
+                  <td>
+                    <h5 class="font-medium mb-0">{{student.fullName}}</h5>
+                  </td>
+                  <td>
+                    <span class="text-muted">{{student.fullName}}</span><br>
+                  </td>
+                  <td>
+                    <select class="form-control category-select" id="exampleFormControlSelect1">
+                      <option>Student</option>
+                    </select>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
